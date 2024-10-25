@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <menuitem id="menu_transport_management"
+              name="Transport Management"
+              />
+    <menuitem id="menu_transport_company"
+              name="Transporter"
+              parent="menu_transport_management"
+              action="action_transporter"
+              />
+    <menuitem id="menu_transport_vehicle"
+              name="Vehicles"
+              parent="menu_transport_management"
+              action="action_transport_vehicle"
+              />
+    <menuitem id="menu_transport_entry"
+              name="Transport Entry"
+              parent="menu_transport_management"
+              action="action_transport_entry"
+              />
+    <menuitem id="menu_transport_configuration"
+              name="Configuration"
+              parent="menu_transport_management"
+              />
+    <menuitem id="menu_transport_locations"
+              name="Transport Locations"
+              parent="menu_transport_configuration"
+              action="action_transport_locations"
+              />
+    <menuitem id="menu_transport_routes"
+              name="Transport Routes"
+              parent="menu_transport_configuration"
+              action="action_transport_routes"
+              />
+</odoo>

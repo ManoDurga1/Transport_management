@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="view_transporter_tree" model="ir.ui.view">
+        <field name="name">transport.transporter.tree</field>
+        <field name="model">transport.transporter</field>
+        <field name="arch" type="xml">
+            <tree string="Transporter">
+                        <field name="company_name"/>
+                        <field name="contact_person"/>
+                        <field name="address"/>
+                        <field name="phone_no"/>
+                        <field name="mobile_no"/>
+                        <field name="email"/>
+
+            </tree>
+        </field>
+    </record>
+    <record id="view_transporter_form" model="ir.ui.view">
+        <field name="name">transport.transporter.form</field>
+        <field name="model">transport.transporter</field>
+        <field name="arch" type="xml">
+            <form string="Transporter">
+                <sheet>
+
+            <!-- Smart button for related deliveries -->
+                    <div name="button_box" class="oe_button_box">
+                        <button name="action_view_vehicle" type="object" class="oe_stat_button" icon="fa-truck" string="Vehicle">
+                            <field name="vehicle_count" widget="statinfo" string="Vehicle"/>
+                        </button>
+                        <button name="action_view_deliveries" type="object" class="oe_stat_button" icon="fa-truck" string="Delivery">
+                            <field name="delivery_count" widget="statinfo" string="Delivery"/>
+                        </button>
+                    </div>
+
+                     <field name="logo" widget="image" class="oe_avatar"/>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="company_name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+<!--                            <field name="company_name"/>-->
+                            <field name="contact_person"/>
+                            <field name="address"/>
+                        </group>
+                        <group>
+                            <field name="phone_no"/>
+                            <field name="mobile_no"/>
+                            <field name="email" widget="email"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    # Kanban View.................
+    <record model="ir.ui.view" id="transporter_view_kanban">
+            <field name="name">Kanban</field>
+            <field name="model">transport.transporter</field>
+            <field name="arch" type="xml">
+                <kanban create="true" class="o_modules_kanban">
+                        <field name="company_name" />
+                        <field name="contact_person"/>
+                        <field name="address"/>
+                        <field name="phone_no"/>
+                        <field name="mobile_no"/>
+                        <field name="email" widget="email"/>
+                        <field name="logo" widget="image"/>
+                     <template>
+                         <t t-name="kanban-box">
+                            <div class="oe_kanban_global_click o_kanban_record_has_image_fill">
+                                <div class="o_kanban_image d-none d-md-block"
+                                t-attf-style="background-image:url('#{kanban_image('transport.transporter','logo',record.id.raw_value,placeholder)}'); background-size: contain;">
+                                </div>
+                                 <div class="oe_kanban_detail d-flex flex-column">
+                                     <div class="o_kanban_primary_center">
+                                        <strong><field name="company_name"/></strong>
+                                    </div>
+                                     <div>
+                                         <span>Contact Person: <field name="contact_person"/> </span>
+                                     </div>
+                                     <div>
+                                         <span>Phone No: <field name="phone_no"/> </span>
+                                     </div>
+                                     <div>
+                                         <span>Mobile No: <field name="mobile_no"/> </span>
+                                     </div>
+                                     <div>
+                                         <span>Email: <field name="email"/> </span>
+                                     </div>
+                                 </div>
+                            </div>
+                         </t>
+                     </template>
+                </kanban>
+            </field>
+    </record>
+
+
+    <record id="action_transporter" model="ir.actions.act_window">
+        <field name="name">Transporter</field>
+        <field name="res_model">transport.transporter</field>
+        <field name="view_mode">kanban,tree,form</field>
+         <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first transporter.
+            </p>
+          </field>
+    </record>
+
+</odoo>

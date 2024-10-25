@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_transport_vehicle,access_transport_vehicle,model_transport_vehicle,,1,1,1,1
+access_transport_transporter,access_transport_transporter,model_transport_transporter,,1,1,1,1
+access_transport_locations,access_transport_locations,model_transport_locations,,1,1,1,1
+access_transport_routes,access_transport_routes,model_transport_routes,,1,1,1,1
+access_location_details,access_location_details,model_location_details,,1,1,1,1
+access_transport_entry,access_transport_entry,model_transport_entry,,1,1,1,1

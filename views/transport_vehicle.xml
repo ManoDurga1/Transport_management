@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="view_transport_vehicle_tree" model="ir.ui.view">
+        <field name="name">transport.vehicle.tree</field>
+        <field name="model">transport.vehicle</field>
+        <field name="arch" type="xml">
+            <tree string="Vehicles">
+<!--                <field name="vehicle_id"/>-->
+                <field name="license_id"/>
+                <field name="model_id"/>
+                <field name="vehicle_type"/>
+                <field name="driver_id"/>
+                <field name="capacity"/>
+                <field name="status"/>
+
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_transport_vehicle_form" model="ir.ui.view">
+        <field name="name">transport.vehicle.form</field>
+        <field name="model">transport.vehicle</field>
+        <field name="arch" type="xml">
+            <form string="Vehicle">
+                <group>
+                    <field name="vehicle_id"/>
+                    <field name="license_id"/>
+                    <field name="model_id"/>
+                    <field name="vehicle_type"/>
+                    <field name="capacity"/>
+                    <field name="driver_id"/>
+                    <field name="status"/>
+                    <field name="transporter_id"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_transport_vehicle" model="ir.actions.act_window">
+        <field name="name">Vehicles</field>
+        <field name="res_model">transport.vehicle</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>
