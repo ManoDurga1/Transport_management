@@ -28,7 +28,7 @@
                     <button name="action_cancel" type="object" string="Cancel"
                             class="oe_highlight"/>
 
-                    <field name="state" widget="statusbar" options="{'clickable' : '1'}"/>
+                    <field name="state" widget="statusbar" statusbar_visible="start,waiting,in-progress,done" options="{'clickable' : '1'}"/>
                 </header>
                 <sheet>
                     <div class="oe_title">

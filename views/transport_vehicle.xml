@@ -11,7 +11,7 @@
                 <field name="vehicle_type"/>
                 <field name="driver_id"/>
                 <field name="capacity"/>
-                <field name="status"/>
+<!--                <field name="status"/>-->
 
             </tree>
         </field>
@@ -29,7 +29,7 @@
                     <field name="vehicle_type"/>
                     <field name="capacity"/>
                     <field name="driver_id"/>
-                    <field name="status"/>
+<!--                    <field name="status"/>-->
                     <field name="transporter_id"/>
                 </group>
             </form>

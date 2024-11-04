@@ -56,45 +56,45 @@
                         <table class="table table-sm table-borderless">
                             <thead>
                             <tr>
-                                <th>Delivery Order</th>
-                                <th>Transport By</th>
-                                <th>Transport Vehicle</th>
-                                <th>No Of Parcels</th>
+                                <th style="padding: 10px; text-align: left;">Delivery Order</th>
+                                <th style="padding: 10px; text-align: left;">Transport By</th>
+                                <th style="padding: 10px; text-align: left;">Transport Vehicle</th>
+                                <th style="padding: 10px; text-align: left;">No Of Parcels</th>
                             </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td t-esc="o.delivery_order_id.name"/>
-                                    <td t-esc="o.transport_id.company_name"/>
-                                    <td t-esc="o.vehicle_id.name"/>
-                                    <td t-esc="o.no_of_parcels"/>
+                                    <td style="padding: 10px"><span t-field="o.delivery_order_id.name"/></td>
+                                    <td style="padding: 10px"><span t-field="o.transport_id.company_name"/></td>
+                                    <td style="padding: 10px"><span t-field="o.vehicle_id.name"/></td>
+                                    <td style="padding: 10px"><span t-field="o.no_of_parcels"/></td>
                                 </tr>
                             </tbody>
                         </table><br/><br/>
 
                         <!-- Route Details -->
                         <h3>Route Details</h3><br/>
-                        <table class="table table-sm table-borderless">
+                        <table class="table table-sm table-bordered">
                             <thead>
                                 <tr>
-                                    <th>Start Location</th>
-                                    <th>End Location</th>
-                                    <th>Distance</th>
-                                    <th>Time Hours</th>
-                                    <th>Start Time</th>
-                                    <th>End Time</th>
-                                    <th>Status</th>
+                                    <th style="padding: 10px; text-align: left;">Start Location</th>
+                                    <th style="padding: 10px; text-align: left;">End Location</th>
+                                    <th style="padding: 10px; text-align: left;">Distance</th>
+                                    <th style="padding: 10px; text-align: left;">Time Hours</th>
+                                    <th style="padding: 10px; text-align: left;">Start Time</th>
+                                    <th style="padding: 10px; text-align: left;">End Time</th>
+                                    <th style="padding: 10px; text-align: left;">Status</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr t-foreach="o.location_route_ids" t-as="route">
-                                    <td t-esc="route.start_location_id.location"/>
-                                    <td t-esc="route.end_location_id.location"/>
-                                    <td t-esc="route.distance"/>
-                                    <td t-esc="route.time"/>
-                                    <td t-esc="route.start_time"/>
-                                    <td t-esc="route.end_time"/>
-                                    <td t-esc="route.state"/>
+                                    <td style="padding: 10px"><span t-field="route.start_location_id.location"/></td>
+                                    <td style="padding: 10px"><span t-field="route.end_location_id.location"/></td>
+                                    <td style="padding: 10px"><span t-field="route.distance"/></td>
+                                    <td style="padding: 10px"><span t-field="route.time"/></td>
+                                    <td style="padding: 10px"><span t-field="route.start_time"/></td>
+                                    <td style="padding: 10px"><span t-field="route.end_time"/></td>
+                                    <td style="padding: 10px"><span t-field="route.state"/></td>
                                 </tr>
                             </tbody>
                         </table>

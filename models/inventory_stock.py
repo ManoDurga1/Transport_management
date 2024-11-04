@@ -69,33 +69,18 @@ class InventoryStock(models.Model):
             entry_rec = self.env['transport.entry'].create(transport_entry_vals)
 
             # Fetch transport location details based on the new transport entry and populate tracking number
-            if entry_rec:
-                # Update the transport location details with the tracking number
-                for location in entry_rec.location_route_ids:
-                    location.tracking_num = self.tracking_num
+            # if entry_rec:
+            #     # Update the transport location details with the tracking number
+            #     for location in entry_rec.location_route_ids:
+            #         location.tracking_num = self.tracking_num
 
-            # Redirect to the `transport.entry` model to show related records
-            # return {
-            #     'name': 'Transport Entries',
-            #     'type': 'ir.actions.act_window',
-            #     'res_model': 'transport.entry',
-            #     'view_mode': 'tree,form',
-            #     'domain': [('delivery_order_id', '=', rec.id)],  # Filter entries by the sale order
-            #     'context': dict(self.env.context, create=False),
-            # }
+
 
             # Search for the related picking record using delivery_order_id
             picking = self.env['transport.entry'].search([('delivery_order_id', '=', rec.id)], limit=1)
 
             if picking:
 
-                # Add a new entry to transport_entry_ids
-                # rec.transport_entry_ids = [(0, 0, {
-                #     'name': picking.name,
-                #     'transport_date': picking.transport_date,
-                #     'delivery_order_id': picking.delivery_order_id.id,
-                #     'transport_id': picking.transport_id.id
-                # })]
                 rec.transport_entry_ids = [(4,entry_rec.id)] # link to the existing record with id=ID(add a relationship)
 
         return res

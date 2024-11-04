@@ -15,11 +15,11 @@ class TransportEntry(models.Model):
     no_of_parcels = fields.Integer(string='No Of Parcels')
     vehicle_id = fields.Many2one('fleet.vehicle',string='Transport Vehicle')
     state = fields.Selection([('start','Start'),('waiting','Waiting'),('in-progress','In-Progress'),
-                              ('done','Delivered'),('cancel','Cancelled')],default='start',string="State", track_visibility='onchange')
+                              ('done','Delivered'),('cancel','Cancelled')],default='start',string="State",track_visibility='onchange')
 
     # location details
     # Many2one field to select the route
-    route_id = fields.Many2one('transport.routes', string="Route", required=True)
+    route_id = fields.Many2one('transport.routes', string="Route", required=True, readonly=True)
 
     # One2many field to fetch location details from location.details model, via transport.routes
     location_route_ids = fields.One2many('location.details','demo_id',string="Location Details")
@@ -61,20 +61,18 @@ class TransportEntry(models.Model):
             location.start_time = fields.Datetime.now()
         self._update_location_state('in-progress')  # Update related location details
         self._populate_transport_location_details()
-    def action_waiting(self):
 
+    def action_waiting(self):
         self.state = 'waiting'
         self._update_location_state('waiting')  # Update related location details
         self._populate_transport_location_details()
 
     def action_cancel(self):
-
         self.state = 'cancel'
         self._update_location_state('cancel')  # Update related location details
         self._populate_transport_location_details()
 
     def action_done(self):
-
         self.state = 'done'
         for location in self.location_route_ids:
             location.end_time = fields.Datetime.now()
